@@ -1,1 +1,25 @@
-# SESD-
+# SESD - Luminary Archive
+**A Premium Digital Library & Reading Experience**
+
+The Luminary Archive is a state-of-the-art web application designed for bibliophiles and researchers. It provides a seamless interface for exploring a vast collection of volumes, enriched with real-time metadata from global sources, and offers an integrated, distraction-free reading experience.
+
+---
+
+## 🏛️ Project Vision
+To bridge the gap between physical archives and digital accessibility by providing a "Living Library" where metadata is dynamic, reading is immersive, and administration is effortless.
+
+## 🚀 Core Features
+
+### 📖 Immersive Reader
+*   **Integrated View**: Read volumes directly in the browser via a customized iframe reader.
+*   **Archival Resiliency**: Intelligent fallback mechanisms (PDF -> Web Reader -> External Preview) ensure content is always accessible.
+*   **Metadata Enrichment**: Automatically pulls descriptions, authors, and cover art using ISBN-based integration with Google Books.
+
+### 🔍 Smart Archive Search
+*   **Genre Navigation**: Explore curated corridors like Fiction, Sci-Fi, Historical, and more.
+*   **Real-time Filtering**: Instantly narrow down results by title, author, or category.
+*   **Visual Discovery**: Premium card-based layout with high-quality archival imagery.
+
+### 🛡️ Administrative Suite
+*   **Catalogue Management**: Full control over the digital archive.
+*   **Metadata Overrides**: Manually correct or update reading links (PDF/Web) to bypass embedding restrictions.
