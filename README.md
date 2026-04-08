@@ -23,3 +23,23 @@ To bridge the gap between physical archives and digital accessibility by providi
 ### 🛡️ Administrative Suite
 *   **Catalogue Management**: Full control over the digital archive.
 *   **Metadata Overrides**: Manually correct or update reading links (PDF/Web) to bypass embedding restrictions.
+*   **User Oversight**: Manage "Archive Fellows" (users) and their roles within the ecosystem.
+
+---
+
+## 🛠️ Technology Stack
+
+### Frontend
+*   **Core**: React.js
+*   **Styling**: Vanilla CSS (Premium "Archive" Aesthetic)
+*   **Routing**: React Router DOM
+*   **Icons/Imagery**: Custom-curated archival assets and HSL-based design tokens.
+
+### Backend
+*   **Environment**: Node.js & Express
+*   **Database**: PostgreSQL (Structured Archival Data)
+*   **Integration**: Google Books API (Metadata Engine)
+*   **Authentication**: JWT-based Secure Sessions
+
+---
+
