@@ -43,3 +43,23 @@ To bridge the gap between physical archives and digital accessibility by providi
 
 ---
 
+## 🏗️ Architecture
+The project follows a clean service-repository pattern to ensure scalability and maintainability.
+
+*   **Models**: Define the structure of books and users.
+*   **Repositories**: Handle direct database interactions.
+*   **Services**: Implement business logic (e.g., metadata enrichment, reader prioritization).
+*   **Controllers**: Bridge the gap between HTTP requests and system logic.
+
+Detailed diagrams are available in the root directory:
+*   [Class Diagram](file:///Users/srishtyshree/Desktop/SESD_/classDiagram.md)
+*   [ER Diagram](file:///Users/srishtyshree/Desktop/SESD_/ErDiagram.md)
+*   [Sequence Diagram](file:///Users/srishtyshree/Desktop/SESD_/sequenceDiagram.md)
+*   [Use Case Diagram](file:///Users/srishtyshree/Desktop/SESD_/useCaseDiagram.md)
+
+---
+
+## 🚦 Getting Started
+
+### Prerequisites
+*   Node.js (v16+)
