@@ -63,3 +63,23 @@ Detailed diagrams are available in the root directory:
 
 ### Prerequisites
 *   Node.js (v16+)
+*   PostgreSQL
+*   A Google Books API key (optional, for metadata enrichment)
+
+### Installation
+1.  **Clone the Archive**:
+    ```bash
+    git clone [repository-url]
+    ```
+2.  **Setup Backend**:
+    ```bash
+    cd backend
+    npm install
+    cp .env.example .env # Configure your database credentials
+    npm start
+    ```
+3.  **Setup Frontend**:
+    ```bash
+    cd ../frontend
+    npm install
+    npm start
