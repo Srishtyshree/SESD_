@@ -1,0 +1,116 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id          String   @id @default(uuid())
+  username    String   @unique
+  email       String   @unique
+  password    String
+  avatar      String   @default("✦")
+  role        Role     @default(USER)
+  joinedAt    DateTime @default(now())
+  
+  // Relations
+  readingList   Book[]         @relation("ReadingList")
+  borrowRecords BorrowRecord[]
+  reservations  Reservation[]
+  fines         Fine[]
+}
+
+model Book {
+  id              String        @id @default(uuid())
+  title           String
+  author          String
+  genre           String
+  volume          String?
+  image           String?
+  description     String?
+  rating          Float         @default(4.5)
+  reviews         Int           @default(120)
+  pdfUrl          String?
+  year            Int?
+  tags            String[]
+  isbn            String?       @unique
+  totalCopies     Int           @default(1)
+  availableCopies Int           @default(1)
+  
+  // Relations
+  marginalia     Marginalia[]
+  readers        User[]         @relation("ReadingList")
+  borrowRecords  BorrowRecord[]
+  reservations   Reservation[]
+}
+
+model BorrowRecord {
+  id          String    @id @default(uuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  bookId      String
+  book        Book      @relation(fields: [bookId], references: [id])
+  borrowDate  DateTime  @default(now())
+  dueDate     DateTime
+  returnDate  DateTime?
+  status      BorrowStatus @default(BORROWED)
+  fine        Fine?
+}
+
+enum BorrowStatus {
+  BORROWED
+  RETURNED
+  OVERDUE
+}
+
+model Reservation {
+  id              String            @id @default(uuid())
+  userId          String
+  user            User              @relation(fields: [userId], references: [id])
+  bookId          String
+  book            Book              @relation(fields: [bookId], references: [id])
+  reservationDate DateTime          @default(now())
+  status          ReservationStatus @default(PENDING)
+}
+
+enum ReservationStatus {
+  PENDING
+  COMPLETED
+  CANCELLED
+}
+
+model Fine {
+  id             String       @id @default(uuid())
+  amount         Float
+  status         FineStatus   @default(UNPAID)
+  userId         String
+  user           User         @relation(fields: [userId], references: [id])
+  borrowRecordId String       @unique
+  borrowRecord   BorrowRecord @relation(fields: [borrowRecordId], references: [id])
+  createdAt      DateTime     @default(now())
+}
+
+enum FineStatus {
+  PAID
+  UNPAID
+}
+
+model Marginalia {
+  id          String   @id @default(uuid())
+  user        String   
+  text        String
+  date        DateTime @default(now())
+  
+  // Relation to Book
+  bookId      String
+  book        Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
+}
+
+enum Role {
+  USER
+  ADMIN
+  LIBRARIAN
+}
