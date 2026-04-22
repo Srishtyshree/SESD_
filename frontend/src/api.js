@@ -1,4 +1,8 @@
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5005/api';
+const rawApiUrl = import.meta.env.VITE_API_URL?.trim();
+
+export const API_BASE = rawApiUrl
+  ? rawApiUrl.replace(/\/+$/, '').replace(/\/api$/, '') + '/api'
+  : 'http://localhost:5005/api';
 
 export async function fetchBooks() {
   try {
@@ -39,7 +43,7 @@ export async function login(email, password) {
 
 export async function signup(username, email, password) {
   try {
-    const res = await fetch(`${API_BASE}/auth/signup`, {
+    const res = await fetch(`${API_BASE}/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, email, password })

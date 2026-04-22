@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { API_BASE } from '../../api';
 
-const API_URL = 'http://localhost:5001/api/auth';
+const API_URL = `${API_BASE}/auth`;
 
 export const login = createAsyncThunk('auth/login', async (credentials, { rejectWithValue }) => {
   try {
@@ -26,7 +27,7 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: {
     user: null,
-    token: localStorage.getItem('token'),
+    token: localStorage.getItem('luminary_token'),
     loading: false,
     error: null
   },
@@ -34,7 +35,7 @@ const authSlice = createSlice({
     logout: (state) => {
       state.user = null;
       state.token = null;
-      localStorage.removeItem('token');
+      localStorage.removeItem('luminary_token');
     }
   },
   extraReducers: (builder) => {

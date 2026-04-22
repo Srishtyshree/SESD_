@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE } from '../api';
 
 export const BookEditModal = ({ book, isOpen, onClose, onUpdate }) => {
   const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ export const BookEditModal = ({ book, isOpen, onClose, onUpdate }) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`http://localhost:5005/api/books/${book._id || book.id}`, {
+      const response = await fetch(`${API_BASE}/books/${book._id || book.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

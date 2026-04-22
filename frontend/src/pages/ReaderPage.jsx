@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchBookById } from '../api';
+import { API_BASE, fetchBookById } from '../api';
 
 const ReaderPage = ({ bookId, onBack }) => {
   const [book, setBook] = useState(null);
@@ -9,9 +9,9 @@ const ReaderPage = ({ bookId, onBack }) => {
   useEffect(() => {
     const loadBook = async () => {
       try {
-        const response = await fetch(`http://localhost:5005/api/books/${bookId}/read`, {
+        const response = await fetch(`${API_BASE}/books/${bookId}/read`, {
           headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
+            'Authorization': `Bearer ${localStorage.getItem('luminary_token')}`
           }
         });
         if (!response.ok) throw new Error('Failed to fetch reading information.');
