@@ -13,7 +13,9 @@ const app = express();
 const PORT = process.env.PORT || 5005;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL || '*'
+}));
 app.use(express.json());
 
 // Routes
