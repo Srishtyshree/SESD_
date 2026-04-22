@@ -83,3 +83,19 @@ Detailed diagrams are available in the root directory:
     cd ../frontend
     npm install
     npm start
+    ```
+
+---
+
+## 📅 Roadmap
+*   [x] Premium UI/UX Implementation
+*   [x] Multi-source Metadata Engine
+*   [x] Administrative Override System
+*   [ ] Offline Reading Support (PWA)
+*   [ ] Community Annotations & Marginalia
+*   [ ] AI-powered Reading Recommendations
+
+---
+
+## 📜 License
+Created by Archive Fellows for the preservation of knowledge.
